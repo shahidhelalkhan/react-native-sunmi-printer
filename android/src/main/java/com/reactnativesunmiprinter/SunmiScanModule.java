@@ -47,7 +47,7 @@ public class SunmiScanModule extends ReactContextBaseJavaModule {
   private final ActivityEventListener mActivityEventListener = new BaseActivityEventListener() {
     @Override
     public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent intent) {
-      if (intent != null) {
+      if (intent != null && intent.getExtras()!=null) {
         Bundle bundle = intent.getExtras();
         ArrayList<HashMap<String, String>> result = (ArrayList<HashMap<String, String>>) bundle.getSerializable("data");
         if (null != result) {
